@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Go Godot Jam 4"
 config/features=PackedStringArray("4.0", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://iconCHAR.svg"
 
 [rendering]
 
