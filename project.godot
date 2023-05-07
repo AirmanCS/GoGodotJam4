@@ -12,11 +12,7 @@ config_version=5
 
 config/name="Go Godot Jam 4"
 config/features=PackedStringArray("4.0", "Mobile")
-<<<<<<< HEAD
-config/icon="res://iconCHAR.svg"
-=======
-config/icon="res://iconFa.svg"
->>>>>>> f34b966 (Mi icono fa)
+<<<<<<<HEADconfig/icon="res://iconCHAR.svg"
 
 [rendering]
 
