@@ -1,10 +1,11 @@
 extends CharacterBody3D
 
+const SMOOTH_SPEED = 22
 
 @export var SPEED = 5.0
 @export var JUMP_VELOCITY = 4.5
 
-@onready var animation_player: AnimationPlayer = $visuals/MainCharacter/AnimationPlayer
+@onready var animation_player: AnimationPlayer = $visuals/main_character/AnimationPlayer
 @onready var visuals: Node3D = $visuals
 
 
@@ -34,7 +35,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
 		
-		visuals.look_at(position - direction)
+		_orient_visuals(direction, delta)
+#		visuals.look_at(direction + position)
 		
 		if !walking:
 			walking = true
@@ -49,3 +51,10 @@ func _physics_process(delta: float) -> void:
 			animation_player.play("Idle")
 	
 	move_and_slide()
+
+func _orient_visuals(direction, delta):
+	#Rotates Character to look at front in the direction of the camera
+	#Main function is the looking at that works with 3D transfroms, then I use a second
+	#line to avoid changing rotations too fast
+	var alignment: Transform3D = visuals.transform.looking_at(-direction, Vector3.UP)
+	visuals.transform = visuals.transform.interpolate_with(alignment, delta * SMOOTH_SPEED)
