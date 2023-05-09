@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://dl4s7ibsxc5hh"]
+
+[ext_resource type="PackedScene" uid="uid://ba4h1m2enqy7p" path="res://scenes/player.tscn" id="1_tdgbu"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7462p"]
+
+[sub_resource type="Sky" id="Sky_aodj5"]
+sky_material = SubResource("ProceduralSkyMaterial_7462p")
+
+[sub_resource type="Environment" id="Environment_fdkk3"]
+background_mode = 2
+sky = SubResource("Sky_aodj5")
+
+[sub_resource type="BoxMesh" id="BoxMesh_btsfr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t2eog"]
+
+[node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_fdkk3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.788355, 0.615221, 0, -0.615221, 0.788355, -0.0189037, 7.44409, 5.25745)
+
+[node name="MainLevel" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MainLevel"]
+transform = Transform3D(70, 0, 0, 0, 2, 0, 0, 0, 70, 0.0862122, -1, -0.0653095)
+mesh = SubResource("BoxMesh_btsfr")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MainLevel/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MainLevel/MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_t2eog")
+
+[node name="Camera3D" type="Camera3D" parent="MainLevel"]
+transform = Transform3D(1, 0, 0, 0, 0.920648, 0.390394, 0, -0.390394, 0.920648, 0.568499, 8.68396, 18.7531)
+fov = 50.0
+
+[node name="Player" parent="MainLevel" instance=ExtResource("1_tdgbu")]
