@@ -15,6 +15,14 @@ run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 <<<<<<<HEADconfig/icon="res://iconCHAR.svg"
 
+[display]
+
+window/size/viewport_width=375
+window/size/viewport_height=667
+window/size/initial_position_type=2
+window/size/borderless=true
+window/handheld/orientation=1
+
 [input]
 
 ui_left={
@@ -49,6 +57,12 @@ ui_down={
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":1,"axis_value":1.0,"script":null)
 ]
 }
+
+[layer_names]
+
+3d_physics/layer_1="Environment"
+3d_physics/layer_2="Obstacles"
+3d_physics/layer_3="Player"
 
 [rendering]
 

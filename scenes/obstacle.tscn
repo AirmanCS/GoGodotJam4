@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b760m1waqdkgl"]
+
+[ext_resource type="Script" path="res://assets/scripts/obstacle_generator.gd" id="1_relof"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_rngc5"]
+
+[node name="Obstacle" type="Node3D"]
+script = ExtResource("1_relof")
+objects = Array[Mesh]([SubResource("SphereMesh_rngc5")])

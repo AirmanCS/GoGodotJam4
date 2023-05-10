@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://qtqgmwigq5cs"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="Script" path="res://assets/scripts/Options.gd" id="1_yjlgq"]
+[ext_resource type="Script" path="res://assets/scripts/options.gd" id="1_yjlgq"]
 
 [sub_resource type="Theme" id="Theme_n5cam"]
 

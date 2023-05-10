@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dl4s7ibsxc5hh"]
+[gd_scene load_steps=11 format=3 uid="uid://dl4s7ibsxc5hh"]
 
 [ext_resource type="PackedScene" uid="uid://ba4h1m2enqy7p" path="res://scenes/player.tscn" id="1_tdgbu"]
+[ext_resource type="PackedScene" uid="uid://b760m1waqdkgl" path="res://scenes/obstacle.tscn" id="3_pa8qu"]
+[ext_resource type="Script" path="res://assets/scripts/object_killer.gd" id="4_0htb0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7462p"]
 
@@ -15,6 +17,11 @@ sky = SubResource("Sky_aodj5")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t2eog"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_gdybt"]
+size = Vector3(80, 5, 80)
+
+[sub_resource type="PrismMesh" id="PrismMesh_ih3jn"]
+
 [node name="World" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -25,17 +32,32 @@ transform = Transform3D(1, 0, 0, 0, 0.788355, 0.615221, 0, -0.615221, 0.788355, 
 
 [node name="MainLevel" type="Node3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MainLevel"]
-transform = Transform3D(70, 0, 0, 0, 2, 0, 0, 0, 70, 0.0862122, -1, -0.0653095)
+[node name="Player" parent="MainLevel" instance=ExtResource("1_tdgbu")]
+
+[node name="Floor" type="MeshInstance3D" parent="MainLevel"]
+transform = Transform3D(19.288, 0, 0, 0, 0.989924, 0, 0, 0, 34.6473, 0.0862122, -1, -0.0653095)
 mesh = SubResource("BoxMesh_btsfr")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MainLevel/MeshInstance3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="MainLevel/Floor"]
+collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MainLevel/MeshInstance3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MainLevel/Floor/StaticBody3D"]
 shape = SubResource("BoxShape3D_t2eog")
 
 [node name="Camera3D" type="Camera3D" parent="MainLevel"]
-transform = Transform3D(1, 0, 0, 0, 0.920648, 0.390394, 0, -0.390394, 0.920648, 0.568499, 8.68396, 18.7531)
-fov = 50.0
+transform = Transform3D(1, 0, 0, 0, 0.615662, 0.788011, 0, -0.788011, 0.615662, 0, 30, 27)
+fov = 55.0
 
-[node name="Player" parent="MainLevel" instance=ExtResource("1_tdgbu")]
+[node name="KillZone" type="Area3D" parent="MainLevel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13.4326, 0)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_0htb0")
+
+[node name="ObjectKiller" type="CollisionShape3D" parent="MainLevel/KillZone"]
+shape = SubResource("BoxShape3D_gdybt")
+
+[node name="Obstacle" parent="MainLevel" instance=ExtResource("3_pa8qu")]
+objects = Array[Mesh]([SubResource("PrismMesh_ih3jn")])
+
+[connection signal="body_entered" from="MainLevel/KillZone" to="MainLevel/KillZone" method="_on_body_entered"]
