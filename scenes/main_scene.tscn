@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b80x6jbybg3um"]
+[gd_scene load_steps=15 format=3 uid="uid://b80x6jbybg3um"]
 
 [ext_resource type="PackedScene" uid="uid://ba4h1m2enqy7p" path="res://scenes/player.tscn" id="1_tdgbu"]
 [ext_resource type="PackedScene" uid="uid://b760m1waqdkgl" path="res://scenes/obstacle.tscn" id="3_pa8qu"]
@@ -21,7 +21,13 @@ sky = SubResource("Sky_aodj5")
 [sub_resource type="BoxShape3D" id="BoxShape3D_gdybt"]
 size = Vector3(80, 5, 80)
 
-[sub_resource type="PrismMesh" id="PrismMesh_ih3jn"]
+[sub_resource type="SphereMesh" id="SphereMesh_rngc5"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_7tqp4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_i5vnq"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ndhb0"]
 
 [node name="World" type="Node3D"]
 
@@ -59,7 +65,7 @@ script = ExtResource("4_0htb0")
 shape = SubResource("BoxShape3D_gdybt")
 
 [node name="Obstacle" parent="MainLevel" instance=ExtResource("3_pa8qu")]
-objects = Array[Mesh]([SubResource("PrismMesh_ih3jn")])
+objects = Array[Mesh]([SubResource("SphereMesh_rngc5"), SubResource("PrismMesh_7tqp4"), SubResource("BoxMesh_i5vnq"), SubResource("CylinderMesh_ndhb0")])
 
 [node name="PauseMenu" parent="." instance=ExtResource("4_schgf")]
 

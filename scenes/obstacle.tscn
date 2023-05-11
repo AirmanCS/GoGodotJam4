@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://assets/scripts/obstacle_generator.gd" id="1_relof"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_rngc5"]
+[sub_resource type="PrismMesh" id="PrismMesh_cb454"]
 
 [node name="Obstacle" type="Node3D"]
 script = ExtResource("1_relof")
-objects = Array[Mesh]([SubResource("SphereMesh_rngc5")])
+objects = Array[Mesh]([SubResource("PrismMesh_cb454"), null, null, null])
