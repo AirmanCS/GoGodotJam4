@@ -1,19 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://e1rldhdje2sk"]
+[gd_scene load_steps=6 format=3 uid="uid://e1rldhdje2sk"]
 
 [ext_resource type="Script" path="res://assets/scripts/options_menu.gd" id="1_82wja"]
+[ext_resource type="Texture2D" uid="uid://dkv5cq2to1ucm" path="res://assets/textures/fondo2.png" id="2_xvxlm"]
+[ext_resource type="Texture2D" uid="uid://lg4l4unqnbc1" path="res://assets/textures/MainTitle.png" id="3_hgfod"]
+[ext_resource type="Theme" uid="uid://crvqg7mgreege" path="res://theme.tres" id="4_t28t6"]
 
 [sub_resource type="Theme" id="Theme_n5cam"]
 
 [node name="Options" type="Control"]
 layout_mode = 3
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.626
-anchor_bottom = 0.553
-offset_left = 0.5
-offset_top = 0.5
-offset_right = -46.75
-offset_bottom = -34.851
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 8.0
+offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -21,17 +21,58 @@ size_flags_vertical = 4
 theme = SubResource("Theme_n5cam")
 script = ExtResource("1_82wja")
 
+[node name="Fondo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xvxlm")
+expand_mode = 1
+
+[node name="MainTitle" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.519
+anchor_top = 0.807
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.5
+offset_top = 16.7
+offset_right = -42.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.261799
+texture = ExtResource("3_hgfod")
+expand_mode = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-offset_right = 45.0
-offset_bottom = 31.0
+anchors_preset = -1
+anchor_right = 0.992
+anchor_bottom = 0.996
+offset_left = 141.0
+offset_top = 611.0
+offset_right = -122.936
+offset_bottom = -222.372
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_t28t6")
 alignment = 1
+
+[node name="Credits" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Credits"
 
 [node name="Back" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 3
 text = "Back"
 
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_button_pressed"]
