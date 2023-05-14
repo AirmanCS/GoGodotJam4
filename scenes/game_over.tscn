@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://8g235flc6mgt"]
+[gd_scene load_steps=4 format=3 uid="uid://8g235flc6mgt"]
 
 [ext_resource type="Texture2D" uid="uid://bk00d6xi2q1qf" path="res://assets/textures/gameover.png" id="1_u6jnu"]
+[ext_resource type="Script" path="res://assets/scripts/game_over.gd" id="1_xr2w7"]
 [ext_resource type="Theme" uid="uid://crvqg7mgreege" path="res://theme.tres" id="2_k86uo"]
 
 [node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_xr2w7")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -56,3 +58,6 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
 text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/StartAgainButton" to="." method="_on_start_again_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitGameButton" to="." method="_on_quit_game_button_pressed"]

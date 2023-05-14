@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b80x6jbybg3um"]
+[gd_scene load_steps=18 format=3 uid="uid://b80x6jbybg3um"]
 
 [ext_resource type="Script" path="res://assets/scripts/main_scene.gd" id="1_n8xh5"]
 [ext_resource type="PackedScene" uid="uid://ba4h1m2enqy7p" path="res://scenes/player.tscn" id="1_tdgbu"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://assets/scripts/trash_zone.gd" id="7_718g0"]
 [ext_resource type="PackedScene" uid="uid://cw6077k7xcsam" path="res://scenes/gui.tscn" id="8_3hmxi"]
 [ext_resource type="PackedScene" uid="uid://bsty4gq5mr6ub" path="res://scenes/glow.tscn" id="8_snl1h"]
+[ext_resource type="FontFile" uid="uid://doj8ivgwl3pm5" path="res://Organo.ttf" id="10_51xud"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7462p"]
 
@@ -31,6 +32,12 @@ size = Vector3(80, 5, 80)
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_iiq1s"]
 height = 2.88194
 radius = 2.40631
+
+[sub_resource type="Theme" id="Theme_koqp0"]
+resource_local_to_scene = true
+Button/font_sizes/font_size = 42
+Button/fonts/font = ExtResource("10_51xud")
+Label/fonts/font = ExtResource("10_51xud")
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_n8xh5")
@@ -216,6 +223,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.31026, 0.033689, 14.9091)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.26977, 0.033689, -15.8464)
 
 [node name="PauseMenu" parent="." instance=ExtResource("4_schgf")]
+
+[node name="PauseButton" parent="PauseMenu" index="1"]
+theme = SubResource("Theme_koqp0")
+
+[node name="PauseMenu" parent="PauseMenu" index="2"]
+theme = SubResource("Theme_koqp0")
+
+[node name="Label" parent="PauseMenu/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" index="0"]
+theme = SubResource("Theme_koqp0")
+
+[node name="ResumeButton" parent="PauseMenu/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" index="2"]
+theme = SubResource("Theme_koqp0")
+
+[node name="QuitButton" parent="PauseMenu/PauseMenu/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" index="3"]
+theme = SubResource("Theme_koqp0")
 
 [node name="Gui" parent="." instance=ExtResource("8_3hmxi")]
 
