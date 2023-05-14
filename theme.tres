@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://crvqg7mgreege"]
+
+[ext_resource type="FontFile" uid="uid://doj8ivgwl3pm5" path="res://Organo.ttf" id="1_8tit4"]
+
+[resource]
+resource_local_to_scene = true
+Button/font_sizes/font_size = 42
+Button/fonts/font = ExtResource("1_8tit4")
+Label/fonts/font = ExtResource("1_8tit4")
