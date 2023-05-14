@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3gjqdvwwyk2s"]
+
+[ext_resource type="PackedScene" uid="uid://d3sfuwbhqwufy" path="res://assets/environment/PaintingSafeZone.glb" id="1_buuuv"]
+[ext_resource type="Texture2D" uid="uid://bruqvbmnjf6gf" path="res://assets/textures/glow.png" id="2_clqma"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m27o4"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 0.0196078, 0.109804, 1)
+albedo_texture = ExtResource("2_clqma")
+
+[sub_resource type="Animation" id="Animation_h13qh"]
+resource_name = "offset"
+length = 15.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube001:surface_material_override/0:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ym7ot"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube001:surface_material_override/0:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kxr5a"]
+_data = {
+"RESET": SubResource("Animation_ym7ot"),
+"offset": SubResource("Animation_h13qh")
+}
+
+[node name="PaintingSafeZone" instance=ExtResource("1_buuuv")]
+
+[node name="Cube001" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_m27o4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+autoplay = "offset"
+libraries = {
+"": SubResource("AnimationLibrary_kxr5a")
+}
