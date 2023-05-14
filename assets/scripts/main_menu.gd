@@ -4,7 +4,7 @@ func _ready():
 	$VBoxContainer/StartButton.grab_focus()
 	GameManager.art_amount = 0
 	GameManager.trash_amount = 0
-	GameManager.cleaned_amount = 0
+	GameManager.to_be_cleaned = 0
 	GameManager.minimum_art = 0
 
 func _on_start_button_pressed():

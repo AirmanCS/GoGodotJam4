@@ -1,15 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://cw6077k7xcsam"]
+[gd_scene load_steps=9 format=3 uid="uid://cw6077k7xcsam"]
 
 [ext_resource type="Script" path="res://assets/scripts/gui.gd" id="1_i5v4q"]
 [ext_resource type="Texture2D" uid="uid://dbvbom6v6bt0t" path="res://assets/textures/Dustpan.png" id="2_najv2"]
 [ext_resource type="Texture2D" uid="uid://bkf1tr0hk7q3g" path="res://assets/textures/StrongBroom.png" id="3_n1jvm"]
+[ext_resource type="Theme" uid="uid://ymiyy5wcnqyy" path="res://assets/theme/gui.tres" id="4_1aw6e"]
 [ext_resource type="Script" path="res://assets/scripts/countdown.gd" id="4_cvqwi"]
-
-[sub_resource type="SystemFont" id="SystemFont_h3lg5"]
-
-[sub_resource type="Theme" id="Theme_d7seh"]
-default_font = SubResource("SystemFont_h3lg5")
-RichTextLabel/font_sizes/normal_font_size = 40
+[ext_resource type="Texture2D" uid="uid://bdvio8vj5psjn" path="res://assets/textures/relojito.png" id="4_wpl22"]
+[ext_resource type="Texture2D" uid="uid://diw5awolaxah1" path="res://assets/textures/Trashcan.png" id="6_wansi"]
+[ext_resource type="Texture2D" uid="uid://2t4f02oswgpy" path="res://assets/textures/IconoArte.png" id="8_7v5ta"]
 
 [node name="Gui" type="CanvasLayer"]
 script = ExtResource("1_i5v4q")
@@ -51,27 +49,105 @@ texture = ExtResource("3_n1jvm")
 expand_mode = 1
 
 [node name="TimerText" type="RichTextLabel" parent="."]
-offset_left = 367.0
+offset_left = 380.0
 offset_top = 810.0
-offset_right = 456.0
+offset_right = 469.0
 offset_bottom = 864.0
-theme = SubResource("Theme_d7seh")
+theme = ExtResource("4_1aw6e")
 text = "1:00"
 scroll_active = false
 autowrap_mode = 0
 script = ExtResource("4_cvqwi")
-sec = 15
+sec = 30
 min = 1
 
 [node name="Timer" type="Timer" parent="TimerText"]
 autostart = true
 
 [node name="PickUpTrash" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 130.0
+offset_top = 29.0
+offset_right = -327.0
+offset_bottom = -826.0
+theme = ExtResource("4_1aw6e")
+text = "55"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActualPickUpTrash" type="Label" parent="PickUpTrash"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -39.0
+offset_right = -28.0
+text = "55 /"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ArtLeft" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 272.0
+offset_top = 29.0
+offset_right = -184.0
+offset_bottom = -826.0
+theme = ExtResource("4_1aw6e")
+text = "7 /"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ArtLeftMin" type="Label" parent="ArtLeft"]
+layout_mode = 0
+offset_left = 23.0
+offset_right = 67.0
+offset_bottom = 45.0
+theme = ExtResource("4_1aw6e")
+text = "7"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Clock" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 301.0
+offset_top = 811.0
+offset_right = -139.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_wpl22")
+expand_mode = 1
+
+[node name="Trashcan" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = 16.0
+offset_right = -412.0
+offset_bottom = -822.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_wansi")
+expand_mode = 1
+
+[node name="Art" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 203.0
+offset_top = 15.0
+offset_right = -235.0
+offset_bottom = -823.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_7v5ta")
+expand_mode = 1
 
 [connection signal="timeout" from="TimerText/Timer" to="TimerText" method="_on_timer_timeout"]

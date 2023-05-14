@@ -26,6 +26,10 @@ window/size/resizable=false
 window/handheld/orientation=1
 window/stretch/aspect="keep_width"
 
+[filesystem]
+
+import/fbx/enabled=false
+
 [input]
 
 ui_left={

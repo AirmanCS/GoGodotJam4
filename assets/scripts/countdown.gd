@@ -19,3 +19,5 @@ func _process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	sec -= 1
+	if min == 0 && sec == 0:
+		GameManager.game_over()

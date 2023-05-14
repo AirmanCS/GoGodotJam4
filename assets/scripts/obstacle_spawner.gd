@@ -7,7 +7,8 @@ var max_trash = false
 
 func _ready() -> void:
 	GameManager.trash_appeared.connect(stop_spawn)
-	GameManager.cleaned_amount = level_trash_amount
+	GameManager.to_be_cleaned = level_trash_amount
+#	GameManager.level_trash.emit(level_trash_amount)
 
 # Called when the node enters the scene tree for the first time.
 func _process(delta: float) -> void:
@@ -35,5 +36,5 @@ func spawn_timer():
 func stop_spawn(trash_amount):
 	if trash_amount == level_trash_amount:
 		max_trash = true
-	print(str(trash_amount) + " game manager" + str(level_trash_amount) + " level trash" + str(max_trash))
+#	print(str(trash_amount) + " game manager" + str(level_trash_amount) + " level trash" + str(max_trash))
 	

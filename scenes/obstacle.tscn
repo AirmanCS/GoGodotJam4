@@ -1,10 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dui5feb8sxp0j"]
+[gd_scene load_steps=5 format=3 uid="uid://dui5feb8sxp0j"]
 
 [ext_resource type="Script" path="res://assets/scripts/obstacle_creator.gd" id="1_dknpe"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_n55ou"]
+[ext_resource type="ArrayMesh" uid="uid://cce86t34yqfl" path="res://assets/obstacles/Can_Can.res" id="2_qnwyn"]
+[ext_resource type="ArrayMesh" uid="uid://bjnykyiy4gf6o" path="res://assets/obstacles/JuiceBox_JuiceBox.res" id="3_uiwv4"]
+[ext_resource type="ArrayMesh" uid="uid://lbevfwbpyhwp" path="res://assets/obstacles/PaperBall_PaperBall.res" id="4_ytfhr"]
 
 [node name="Obstacle" type="Node3D" groups=["obstacles"]]
 transform = Transform3D(0.999997, 0.00152143, 0.00198801, -0.00151493, 0.999994, -0.00327243, -0.00199297, 0.00326942, 0.999993, 0, 0, 0)
 script = ExtResource("1_dknpe")
-objects = Array[Mesh]([SubResource("BoxMesh_n55ou")])
+objects = Array[Mesh]([ExtResource("2_qnwyn"), ExtResource("3_uiwv4"), ExtResource("4_ytfhr")])
