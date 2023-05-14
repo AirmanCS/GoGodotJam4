@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b4pflwoo4dkdq"
+path="res://.godot/imported/Cuando entra en Creditos.mp3-e2418e66b05c9898fe1b94ecc0d54d16.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/Cuando entra en Creditos.mp3"
+dest_files=["res://.godot/imported/Cuando entra en Creditos.mp3-e2418e66b05c9898fe1b94ecc0d54d16.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

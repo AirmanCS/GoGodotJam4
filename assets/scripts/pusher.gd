@@ -5,6 +5,7 @@ const min_strength = 15
 
 @onready var arrow_back: MeshInstance3D = $"../ArrowBack"
 @onready var arrow_front: MeshInstance3D = $"../ArrowFront"
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 
 var body_state: PhysicsDirectBodyState3D
@@ -48,3 +49,4 @@ func _on_body_entered(body: Node3D) -> void:
 		var rigidbody = body as RigidBody3D
 		var collision_normal = player.export_direction
 		rigidbody.apply_impulse(collision_normal * force_strength, Vector3.ZERO)
+		audio_stream_player.play()

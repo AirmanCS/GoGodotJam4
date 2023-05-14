@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://n1hbg4hp0qsd"
+path="res://.godot/imported/vaso de papel.ogg-d8f2b8b12750b5571f86c5f8bb7fd648.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/vaso de papel.ogg"
+dest_files=["res://.godot/imported/vaso de papel.ogg-d8f2b8b12750b5571f86c5f8bb7fd648.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

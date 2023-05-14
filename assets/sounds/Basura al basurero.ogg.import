@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b470xle8b82v1"
+path="res://.godot/imported/Basura al basurero.ogg-79539ce5deb4c72950d2f56491ac4755.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Basura al basurero.ogg"
+dest_files=["res://.godot/imported/Basura al basurero.ogg-79539ce5deb4c72950d2f56491ac4755.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1tbv4v37ohbj"]
+[gd_scene load_steps=8 format=3 uid="uid://ceyl7x2uf6p5f"]
 
-[ext_resource type="Theme" uid="uid://crvqg7mgreege" path="res://theme.tres" id="1_istn8"]
+[ext_resource type="Theme" uid="uid://0wvtbs4lcf2e" path="res://assets/theme/theme.tres" id="1_8se23"]
 [ext_resource type="Script" path="res://assets/scripts/main_menu.gd" id="1_ss2us"]
 [ext_resource type="Texture2D" uid="uid://dkv5cq2to1ucm" path="res://assets/textures/fondo2.png" id="3_1sjhj"]
 [ext_resource type="Texture2D" uid="uid://lg4l4unqnbc1" path="res://assets/textures/MainTitle.png" id="3_2p7rw"]
+[ext_resource type="AudioStream" uid="uid://lsx5smsfokys" path="res://assets/sounds/IntroMainMenu.wav" id="5_eyaj4"]
+[ext_resource type="AudioStream" uid="uid://dd7jtob6hprbr" path="res://assets/sounds/menuhover.wav" id="5_w8nj0"]
+[ext_resource type="AudioStream" uid="uid://c0dy301p0bk6s" path="res://assets/sounds/MenuMusic.mp3" id="7_1kwa1"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -12,7 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_istn8")
+theme = ExtResource("1_8se23")
 script = ExtResource("1_ss2us")
 
 [node name="Fondo" type="TextureRect" parent="."]
@@ -20,8 +23,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -4.0
-offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_1sjhj")
@@ -59,17 +60,37 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Start"
 
+[node name="StartButton" type="AudioStreamPlayer" parent="VBoxContainer/StartButton"]
+stream = ExtResource("5_w8nj0")
+
 [node name="OptionsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Options"
+
+[node name="OptionsButton" type="AudioStreamPlayer" parent="VBoxContainer/OptionsButton"]
+stream = ExtResource("5_w8nj0")
 
 [node name="QuitGameButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Quit"
 
+[node name="QuitButton" type="AudioStreamPlayer" parent="VBoxContainer/QuitGameButton"]
+stream = ExtResource("5_w8nj0")
+
+[node name="IntroSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_eyaj4")
+autoplay = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_1kwa1")
+volume_db = -5.0
+
+[connection signal="mouse_entered" from="VBoxContainer/StartButton" to="." method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/QuitGameButton" to="." method="_on_quit_game_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/QuitGameButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitGameButton" to="." method="_on_quit_game_button_pressed"]

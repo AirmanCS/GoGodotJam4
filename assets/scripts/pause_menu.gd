@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @onready var pause_menu = $PauseMenu
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 #func _ready() -> void:
 #	set_process_mode(Node.PROCESS_MODE_DISABLED)
@@ -10,6 +11,7 @@ func _unhandled_input(event: InputEvent) -> void:
 #		pause_menu.visible = true
 #		get_tree().paused = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		audio_stream_player.play()
 	
 func _on_resume_button_pressed():
 	pause_menu.visible = false
@@ -27,6 +29,7 @@ func _on_pause_button_pressed():
 	pause_menu.visible = true
 	get_tree().paused = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	audio_stream_player.play()
 
 
 

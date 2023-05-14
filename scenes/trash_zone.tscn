@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmmdswkncpyf0"]
+
+[ext_resource type="Script" path="res://assets/scripts/trash_zone.gd" id="1_bgo7e"]
+[ext_resource type="AudioStream" uid="uid://b470xle8b82v1" path="res://assets/sounds/Basura al basurero.ogg" id="2_35qb8"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_iiq1s"]
+height = 2.88194
+radius = 2.40631
+
+[node name="TrashZone" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.41601, 0.198673, 14.9181)
+collision_mask = 2
+script = ExtResource("1_bgo7e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0904074, 1.22104, 0)
+shape = SubResource("CylinderShape3D_iiq1s")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_35qb8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

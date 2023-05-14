@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://8g235flc6mgt"]
+[gd_scene load_steps=5 format=3 uid="uid://cor5ntsehi453"]
 
 [ext_resource type="Texture2D" uid="uid://bk00d6xi2q1qf" path="res://assets/textures/gameover.png" id="1_u6jnu"]
 [ext_resource type="Script" path="res://assets/scripts/game_over.gd" id="1_xr2w7"]
-[ext_resource type="Theme" uid="uid://crvqg7mgreege" path="res://theme.tres" id="2_k86uo"]
+[ext_resource type="Theme" uid="uid://0wvtbs4lcf2e" path="res://assets/theme/theme.tres" id="3_6i014"]
+[ext_resource type="AudioStream" uid="uid://bjkvt2cf3vwxm" path="res://assets/sounds/negative_beeps.wav" id="4_yi8ue"]
 
 [node name="GameOver" type="CanvasLayer"]
 script = ExtResource("1_xr2w7")
@@ -27,7 +28,7 @@ offset_bottom = -550.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 6
-theme = ExtResource("2_k86uo")
+theme = ExtResource("3_6i014")
 theme_override_colors/font_color = Color(0.254902, 0.254902, 0.254902, 1)
 theme_override_font_sizes/font_size = 60
 text = "GAME OVER"
@@ -44,7 +45,7 @@ offset_right = -91.0
 offset_bottom = -335.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_k86uo")
+theme = ExtResource("3_6i014")
 alignment = 1
 
 [node name="StartAgainButton" type="Button" parent="VBoxContainer"]
@@ -58,6 +59,10 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
 text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_yi8ue")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/StartAgainButton" to="." method="_on_start_again_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitGameButton" to="." method="_on_quit_game_button_pressed"]

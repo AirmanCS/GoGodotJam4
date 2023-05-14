@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://dya58cl87xlka"]
+[gd_scene load_steps=13 format=3 uid="uid://dya58cl87xlka"]
 
 [ext_resource type="Script" path="res://assets/scripts/art_hit_zone.gd" id="1_272lx"]
 [ext_resource type="Texture2D" uid="uid://xo7c40qs0vh2" path="res://assets/textures/Painting.png" id="2_ldg3p"]
 [ext_resource type="PackedScene" uid="uid://d3gjqdvwwyk2s" path="res://scenes/painting_safe_zone.tscn" id="3_w1hts"]
+[ext_resource type="AudioStream" uid="uid://c3weewh8ht1x7" path="res://assets/sounds/varios_objetos_cayendo2.wav" id="4_ineya"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iyj7q"]
 size = Vector3(0.394915, 4.04072, 2.11512)
@@ -126,6 +127,9 @@ libraries = {
 
 [node name="PaintingSafeZone" parent="." instance=ExtResource("3_w1hts")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.192086, -1.01368, 0)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ineya")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="Painting/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

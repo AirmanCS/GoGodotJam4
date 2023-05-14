@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgaa2l6l8sy44"]
+[gd_scene load_steps=5 format=3 uid="uid://cvrim1ijseq0y"]
 
 [ext_resource type="Texture2D" uid="uid://clsrxmykwdglw" path="res://assets/textures/credits.png" id="1_4aank"]
 [ext_resource type="Script" path="res://assets/scripts/credits.gd" id="1_twc32"]
-[ext_resource type="Theme" uid="uid://crvqg7mgreege" path="res://theme.tres" id="2_2xo87"]
+[ext_resource type="Theme" path="res://assets/theme/theme.tres" id="3_6iwem"]
+[ext_resource type="AudioStream" uid="uid://b4pflwoo4dkdq" path="res://assets/sounds/Cuando entra en Creditos.mp3" id="4_tjhl4"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_twc32")
@@ -27,7 +28,7 @@ offset_right = -17.0
 offset_bottom = -693.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_2xo87")
+theme = ExtResource("3_6iwem")
 theme_override_font_sizes/font_size = 25
 text = "Created by:
 bravy studio
@@ -45,7 +46,7 @@ offset_right = -101.0
 offset_bottom = -54.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_2xo87")
+theme = ExtResource("3_6iwem")
 alignment = 1
 
 [node name="MainMenuButton" type="Button" parent="VBoxContainer"]
@@ -59,6 +60,11 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
 text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_tjhl4")
+volume_db = -15.0
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitGameButton" to="." method="_on_quit_game_button_pressed"]
