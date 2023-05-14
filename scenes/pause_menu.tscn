@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://assets/scripts/pause_menu.gd" id="1_ukgnj"]
 
 [node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_ukgnj")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -15,19 +15,22 @@ grow_vertical = 2
 color = Color(1, 1, 1, 0.0509804)
 
 [node name="PauseButton" type="Button" parent="."]
-anchors_preset = -1
-anchor_left = 0.187
-anchor_top = 0.849
-anchor_right = 0.349
-anchor_bottom = 0.9
-offset_left = -0.125
-offset_top = -0.282959
-offset_right = 0.125
-offset_bottom = -0.299927
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = 815.0
+offset_right = -325.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
 theme_override_font_sizes/font_size = 18
 text = "Pause"
+metadata/_edit_use_anchors_ = true
 
 [node name="PauseMenu" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

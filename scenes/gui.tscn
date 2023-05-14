@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://cw6077k7xcsam"]
+
+[ext_resource type="Script" path="res://assets/scripts/gui.gd" id="1_i5v4q"]
+[ext_resource type="Texture2D" uid="uid://dbvbom6v6bt0t" path="res://assets/textures/Dustpan.png" id="2_najv2"]
+[ext_resource type="Texture2D" uid="uid://bkf1tr0hk7q3g" path="res://assets/textures/StrongBroom.png" id="3_n1jvm"]
+[ext_resource type="Script" path="res://assets/scripts/countdown.gd" id="4_cvqwi"]
+
+[sub_resource type="SystemFont" id="SystemFont_h3lg5"]
+
+[sub_resource type="Theme" id="Theme_d7seh"]
+default_font = SubResource("SystemFont_h3lg5")
+RichTextLabel/font_sizes/normal_font_size = 40
+
+[node name="Gui" type="CanvasLayer"]
+script = ExtResource("1_i5v4q")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = -1
+anchor_right = 0.984
+anchor_bottom = 0.945556
+offset_left = 430.0
+offset_top = 65.0
+offset_right = -28.0
+offset_bottom = -665.0
+size_flags_horizontal = 8
+min_value = 15.0
+max_value = 32.0
+value = 15.0
+fill_mode = 3
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Low" type="TextureRect" parent="ProgressBar"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = -14.0
+offset_top = 84.0
+offset_right = 52.0
+offset_bottom = 150.0
+texture = ExtResource("2_najv2")
+expand_mode = 1
+
+[node name="High" type="TextureRect" parent="ProgressBar"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = -14.0
+offset_top = -52.0
+offset_right = 52.0
+offset_bottom = 14.0
+texture = ExtResource("3_n1jvm")
+expand_mode = 1
+
+[node name="TimerText" type="RichTextLabel" parent="."]
+offset_left = 367.0
+offset_top = 810.0
+offset_right = 456.0
+offset_bottom = 864.0
+theme = SubResource("Theme_d7seh")
+text = "1:00"
+scroll_active = false
+autowrap_mode = 0
+script = ExtResource("4_cvqwi")
+sec = 15
+min = 1
+
+[node name="Timer" type="Timer" parent="TimerText"]
+autostart = true
+
+[node name="PickUpTrash" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ArtLeft" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="timeout" from="TimerText/Timer" to="TimerText" method="_on_timer_timeout"]
