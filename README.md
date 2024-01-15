@@ -1,6 +1,6 @@
 This is a game sumited to th GoGodotJam4 on itch.io. Feel free to check it out and learn something useful out of it if you find that possible :P
 
-Shield: [![CC BY-NC 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
+Shield: [![CC BY-NC 4.0][cc-by-nc-shield]][cc-by-nc]
 
 This work is licensed under a
 [Creative Commons Attribution-NonCommercial 4.0 International License][cc-by-nc].
